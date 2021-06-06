@@ -1,0 +1,55 @@
+﻿@page
+@model OnlinePharmacy.Pages.ViewMedicine.IndexModel
+
+@{
+    ViewData["Title"] = "Medicines";
+}
+<p>
+    <a asp-page="Create">Add Medicines</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Medicine[0].MeidicineName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medicine[0].Strips)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medicine[0].Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medicine[0].Company)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Medicine[0].Rate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Medicine)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MeidicineName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Strips)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Company)
+                </td>
+                                <td>
+                    @Html.DisplayFor(modelItem => item.Rate)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
